@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "HostApp"
 include(":app")
+include(":counter")
+project(":counter").projectDir = File(rootDir, "../counter")
