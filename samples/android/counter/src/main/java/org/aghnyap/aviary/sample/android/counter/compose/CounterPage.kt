@@ -17,20 +17,20 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import org.aghnyap.aviary.sample.android.counter.viewmodel.CounterViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CounterPage(title: String) {
-    var count by remember { mutableStateOf(0) }
+fun CounterPage(title: String, viewModel: CounterViewModel = hiltViewModel()) {
+    val count by viewModel.count.collectAsState()
 
     Scaffold(
         topBar = {
@@ -42,7 +42,7 @@ fun CounterPage(title: String) {
             )
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { count++ }) {
+            FloatingActionButton(onClick = { viewModel.increment() }) {
                 Icon(Icons.Default.Add, contentDescription = "Increment")
             }
         },
