@@ -6,7 +6,6 @@ import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -15,7 +14,7 @@ import javax.inject.Singleton
 class StorageModule {
     @Provides
     @Singleton
-    fun provideSharedPreferences(@ApplicationContext application: Application): SharedPreferences {
+    fun provideSharedPreferences(application: Application): SharedPreferences {
         return application.getSharedPreferences(SHARED_PREFS_NAME, Context.MODE_PRIVATE)
     }
 
