@@ -5,13 +5,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 @injectable
 class CounterCubit extends Cubit<int> {
   CounterCubit(this.sharedPreferences)
-      : super(sharedPreferences.getInt("counter") ?? 0);
+      : super(sharedPreferences.getInt("count") ?? 0);
 
   final SharedPreferences sharedPreferences;
 
   void increment() {
-    final count = state + 1;
-    sharedPreferences.setInt("counter", count);
-    emit(count);
+    emit(state + 1);
+    sharedPreferences.setInt("count", state);
   }
 }

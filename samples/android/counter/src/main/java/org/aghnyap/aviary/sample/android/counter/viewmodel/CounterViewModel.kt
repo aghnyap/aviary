@@ -15,6 +15,7 @@ class CounterViewModel @Inject constructor(
     val count: StateFlow<Int> get() = _count
 
     fun increment() {
-        sharedPreferences.edit().putInt("count", ++_count.value).apply()
+        _count.value++
+        sharedPreferences.edit().putInt("count", _count.value).apply()
     }
 }
