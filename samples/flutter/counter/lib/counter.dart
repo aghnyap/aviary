@@ -1,3 +1,3 @@
 library counter;
 
-export 'src/counter_page.dart';
+export 'src/widget/counter_page.dart';
