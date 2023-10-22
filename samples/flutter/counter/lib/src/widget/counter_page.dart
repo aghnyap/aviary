@@ -1,7 +1,8 @@
-import 'package:counter/di/injector.dart';
-import 'package:counter/src/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../di/injector.dart';
+import '../cubit/counter_cubit.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key, required this.title});

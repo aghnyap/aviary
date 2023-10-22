@@ -1,6 +1,7 @@
 import 'package:counter/counter.dart';
 import 'package:flutter/material.dart';
-import 'package:host_app/src/ui/theme/theme.dart';
+
+import 'ui/theme/theme.dart';
 
 class HostApp extends StatelessWidget {
   const HostApp({super.key});

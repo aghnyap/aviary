@@ -12,5 +12,6 @@ final getIt = GetIt.instance;
     ExternalModule(StoragePackageModule),
     ExternalModule(CounterPackageModule),
   ],
+  externalPackageModulesAfter: [],
 )
-void configureDependencies() => getIt.init();
+Future<void> configureDependencies() async => getIt.init();

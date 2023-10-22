@@ -4,4 +4,4 @@ import 'package:injectable/injectable.dart';
 final getIt = GetIt.instance;
 
 @microPackageInit
-void configureCounterDependencies() {}
+void counterMicroPackageInit() {}
