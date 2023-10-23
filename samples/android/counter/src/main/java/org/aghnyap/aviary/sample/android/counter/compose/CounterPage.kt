@@ -1,5 +1,6 @@
 package org.aghnyap.aviary.sample.android.counter.compose
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -29,7 +31,11 @@ import org.aghnyap.aviary.sample.android.counter.viewmodel.CounterViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CounterPage(title: String, viewModel: CounterViewModel = hiltViewModel()) {
+fun CounterPage(
+    title: String,
+    onPageClick: () -> Unit = {},
+    viewModel: CounterViewModel = hiltViewModel()
+) {
     val count by viewModel.count.collectAsState()
 
     Scaffold(
@@ -50,7 +56,8 @@ fun CounterPage(title: String, viewModel: CounterViewModel = hiltViewModel()) {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(it),
+                    .padding(it)
+                    .clickable(onClick = onPageClick),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
